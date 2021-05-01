@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\NewsRequest;
 use App\Models\News;
 use Illuminate\Http\Request;
 
@@ -34,9 +35,13 @@ class NewsController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(NewsRequest $request)
     {
-        News::create($request->only(['title', 'publish_date', 'content']));
+        $news = new News();
+        $news->title = $request->title;
+        $news->publish_date = $request->publish_date;
+        $news->content = $request->content;
+        $news->save();
         return redirect()->route('news.index');
     }
 
@@ -69,7 +74,7 @@ class NewsController extends Controller
      * @param \App\Models\News $news
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
      */
-    public function update(Request $request, News $news)
+    public function update(NewsRequest $request, News $news)
     {
         $news->update($request->only(['title', 'publish_date', 'content']));
         return redirect()->route('news.index');
