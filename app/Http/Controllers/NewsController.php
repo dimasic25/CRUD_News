@@ -79,10 +79,11 @@ class NewsController extends Controller
      * Remove the specified resource from storage.
      *
      * @param \App\Models\News $news
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
      */
     public function destroy(News $news)
     {
-        //
+        $news->delete();
+        return redirect()->route('news.index');
     }
 }

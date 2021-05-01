@@ -33,6 +33,6 @@
     </div>
 
     <button class="btn btn-primary btn-lg" type="submit">{{isset($news) ? 'Update' : 'Create'}}</button>
-    <a class="btn btn-primary btn-lg" href="{{route('news.index')}}" role="button">Back to News</a>
+    <a class="btn btn-secondary btn-lg" href="{{route('news.index')}}" role="button">Back to News</a>
     </form>
 @endsection

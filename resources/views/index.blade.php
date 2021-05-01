@@ -12,6 +12,7 @@
             <th scope="col">Title</th>
             <th scope="col">Publish date</th>
             <th scope="col">Content</th>
+            <th scope="col">Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -24,7 +25,14 @@
                 <td>{{$record->publish_date}}</td>
                 <td>{{$record->content}}</td>
                 <td>
-                    <a class="btn btn-primary" href="{{route('news.edit', $record)}}" role="button">Edit</a>
+                    <form method="post" action="{{ route('news.destroy', $record)}}">
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <a class="btn btn-primary" href="{{route('news.edit', $record)}}" role="button">Edit</a>
+                            @csrf
+                            @method('delete')
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </div>
+                    </form>
                 </td>
             </tr>
         @endforeach
