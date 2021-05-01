@@ -18,7 +18,9 @@
         @foreach($news as $record)
             <tr>
                 <th scope="row">{{$record->id}}</th>
-                <td>{{$record->title}}</td>
+                <td>
+                    <a href="{{ route('news.show', $record) }}">{{$record->title}}</a>
+                </td>
                 <td>{{$record->publish_date}}</td>
                 <td>{{$record->content}}</td>
                 <td>
