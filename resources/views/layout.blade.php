@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Новости</title>
+    <title>@yield('title')</title>
 
 
     <!-- Bootstrap core CSS -->
@@ -17,7 +17,7 @@
 <body class="bg-light">
 
 <div class="container">
-
+    <h1>@yield('title')</h1>
     @yield('content')
 
     <div class="row">

@@ -1,6 +1,10 @@
 @extends('layout')
 
+@section('title', 'News')
+
 @section('content')
+    <a class="btn btn-primary" href="{{route('news.create')}}" role="button">Create new record</a>
+
     <table class="table">
         <thead>
         <tr>
@@ -17,6 +21,9 @@
                 <td>{{$record->title}}</td>
                 <td>{{$record->publish_date}}</td>
                 <td>{{$record->content}}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{route('news.edit', $record)}}" role="button">Edit</a>
+                </td>
             </tr>
         @endforeach
         </tbody>
