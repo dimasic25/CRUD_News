@@ -13,12 +13,12 @@
         <tbody>
         @foreach($news as $record)
             <tr>
-                <th scope="row">{{$news->id}}</th>
-                <td>{{$news->title}}</td>
-                <td>{{$news->publish_date}}</td>
-                <td>{{$news->content}}</td>
+                <th scope="row">{{$record->id}}</th>
+                <td>{{$record->title}}</td>
+                <td>{{$record->publish_date}}</td>
+                <td>{{$record->content}}</td>
             </tr>
-
+        @endforeach
         </tbody>
     </table>
 @endsection
